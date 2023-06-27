@@ -4,4 +4,4 @@
 
 ![CI](https://github.com/MaryVanyush/goblin_game/actions/workflows/web.yml/badge.svg)
 
-[![goblin_game](https://maryvanyush.github.io/goblin_game/)
+[goblin_game](https://maryvanyush.github.io/goblin_game/)
