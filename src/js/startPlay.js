@@ -1,17 +1,10 @@
 function startPlay() {
-  const playingField = document.querySelectorAll('.playing-field');
-  let activeField = 0;
+  const cell = document.querySelectorAll('.field');
+  const div = document.createElement('div');
+  div.classList.add('active');
   setInterval(() => {
-    const index = Math.floor(1 + Math.random() * 15);
-    if (activeField === index) {
-      playingField[0].children[0].classList.add('active');
-      playingField[0].children[activeField].classList.remove('active');
-      activeField = 0;
-      return;
-    }
-    playingField[0].children[index].classList.add('active');
-    playingField[0].children[activeField].classList.remove('active');
-    activeField = index;
+    const element = cell[Math.floor(Math.random() * cell.length)];
+    element.insertAdjacentElement('afterbegin', div);
   }, 1000);
 }
 
