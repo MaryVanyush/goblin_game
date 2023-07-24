@@ -1,0 +1,1 @@
+import GameWidget from"../components/game-widget/game-widget";import{startPlay}from"./startPlay";const gameWidget=new GameWidget(".playing-field");window.addEventListener("DOMContentLoaded",startPlay);

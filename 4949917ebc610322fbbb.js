@@ -1,0 +1,1 @@
+import GameWidget from"../components/game-widget/game-widget";import"./startPlay";export const gameWidget=new GameWidget(".playing-field");
