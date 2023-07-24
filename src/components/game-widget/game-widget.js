@@ -5,6 +5,9 @@ export default class GameWidget {
     } else {
       this.element = document.querySelectorAll(element);
     }
+    this.interval = 0;
+
+    this.startInterval();
 
     this.hit = document.querySelector('.hit');
     this.miss = document.querySelector('.miss');
@@ -13,6 +16,15 @@ export default class GameWidget {
     this.onMiss = this.onMiss.bind(this);
     this.gameOver = this.gameOver.bind(this);
     this.element.forEach((el) => el.addEventListener('click', this.onClick));
+  }
+
+  startInterval() {
+    this.interval = setInterval(() => {
+      const cell = document.querySelectorAll('.field');
+      cell.forEach((el) => el.classList.remove('active'));
+      const element = cell[Math.floor(Math.random() * cell.length)];
+      element.classList.add('active');
+    }, 1000);
   }
 
   onClick(e) {
@@ -30,6 +42,12 @@ export default class GameWidget {
 
   onHit() {
     this.hit.textContent = +(this.hit.textContent) + 1;
+    const cell = document.querySelectorAll('.field');
+    cell.forEach((el) => el.classList.remove('active'));
+    const element = cell[Math.floor(Math.random() * cell.length)];
+    element.classList.add('active');
+    clearInterval(this.interval);
+    this.startInterval();
   }
 
   onMiss() {
@@ -43,5 +61,7 @@ export default class GameWidget {
     alert('GAME OVER');
     this.hit.textContent = '0';
     this.miss.textContent = '0';
+    clearInterval(this.interval);
+    this.startInterval();
   }
 }
